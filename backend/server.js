@@ -4,14 +4,14 @@ const { Pool } = require('pg');
 const path = require('path');
 const cors = require('cors'); // Add CORS support
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3094;
 
 // PostgreSQL connection
 const pool = new Pool({
   user: process.env.DB_USER || 'postgres',
-  host: process.env.DB_HOST || 'localhost',
+  host: process.env.DB_HOST || 'postgres',
   database: process.env.DB_NAME || 'new_employee_db',
-  password: process.env.DB_PASSWORD || 'Password@12345',
+  password: process.env.DB_PASSWORD || 'admin123',
   port: process.env.DB_PORT || 5432,
 });
 
@@ -19,9 +19,11 @@ const pool = new Pool({
 app.use(cors({
   origin: [
     process.env.FRONTEND_URL,
-    "http://localhost:3001",
+    "http://3.110.120.41:3094",
     "http://127.0.0.1:5500",
     "http://localhost:5500",
+    "http://3.110.120.41:9059",
+    "http://3.110.120.41:9060",
    
   ],
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
@@ -148,5 +150,5 @@ app.get('/', (req, res) => {
 
 // Start server
 app.listen(port, () => {
-  console.log(`Server running on http://localhost:${port}`);
+  console.log(`Server running on http://3.110.120.41:${port}`);
 });
