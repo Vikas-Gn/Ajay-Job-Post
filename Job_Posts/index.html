@@ -433,7 +433,7 @@
                 if (e.target === modal) modal.style.display = 'none';
             });
 
-            fetch('http://3.110.120.41:3094/api/jobs')
+            fetch('http://13.232.187.62:3094/api/jobs')
                 .then(response => {
                     if (!response.ok) throw new Error('Network response was not ok');
                     return response.json();
